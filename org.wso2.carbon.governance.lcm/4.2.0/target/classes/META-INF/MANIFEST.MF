@@ -1,0 +1,64 @@
+Manifest-Version: 1.0
+Service-Component: OSGI-INF/serviceComponents.xml
+Export-Package: org.wso2.carbon.governance.lcm.util;uses:="org.wso2.ca
+ rbon.registry.core.service,com.ctc.wstx.exc,org.wso2.carbon.registry.
+ core.utils,org.apache.commons.logging,org.wso2.carbon.registry.core.c
+ onfig,org.wso2.carbon.governance.lcm.beans,org.apache.axiom.om.xpath,
+ org.apache.axiom.om.util,org.apache.axiom.om,org.xml.sax,javax.xml.na
+ mespace,javax.xml.stream,org.wso2.carbon.registry.core.exceptions,org
+ .wso2.carbon.registry.core.session,javax.xml.transform,org.wso2.carbo
+ n.registry.core,javax.xml.transform.stream,org.wso2.carbon.utils,java
+ x.xml.validation,org.apache.commons.scxml.io,org.apache.commons.scxml
+ .model";version="4.2.0",org.wso2.carbon.governance.lcm.listener;uses:
+ ="org.wso2.carbon.governance.lcm.util,org.apache.commons.logging,org.
+ wso2.carbon.registry.core.session,org.wso2.carbon.registry.core,org.w
+ so2.carbon.context,org.wso2.carbon.core.services.callback";version="4
+ .2.0",org.wso2.carbon.governance.lcm.services;uses:="org.wso2.carbon.
+ governance.lcm.util,org.wso2.carbon.registry.core.utils,org.wso2.carb
+ on.registry.core,org.wso2.carbon.governance.lcm.beans,org.wso2.carbon
+ .registry.admin.api.governance,org.wso2.carbon.registry.common.servic
+ es,org.wso2.carbon.governance.registry.extensions.utils";version="4.2
+ .0",org.wso2.carbon.governance.lcm.beans;version="4.2.0"
+Ignore-Package: javax.xml.namespace
+Built-By: maheshakya
+Tool: Bnd-1.43.0
+Bundle-Name: org.wso2.carbon.governance.lcm
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: WSO2 Inc
+DynamicImport-Package: *
+Build-Jdk: 1.7.0_07
+Bundle-Version: 4.2.0
+Bnd-LastModified: 1398318455652
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
+Bundle-Description: Platform Parent pom hold the properties, plugins w
+ hich are required to build carbon components, carbon features and pro
+ ducts
+Bundle-SymbolicName: org.wso2.carbon.governance.lcm
+Import-Package: com.ctc.wstx.exc;resolution:=optional,javax.servlet;ve
+ rsion="[2.6.0,3.0.0)",javax.servlet.http;version="[2.6.0,3.0.0)",java
+ x.xml.namespace;version="0.0.0",javax.xml.stream;resolution:=optional
+ ;version="[1.0,2)",javax.xml.transform;resolution:=optional,javax.xml
+ .transform.stream;resolution:=optional,javax.xml.validation;resolutio
+ n:=optional,org.apache.axiom.om;version="[1.2.11.wso2v2,1.3.0)",org.a
+ pache.axiom.om.util;version="[1.2.11.wso2v2,1.3.0)",org.apache.axiom.
+ om.xpath;version="[1.2.11.wso2v2,1.3.0)",org.apache.commons.logging;r
+ esolution:=optional;version="[1.1,2)",org.apache.commons.scxml.io;ver
+ sion="1.0.0",org.apache.commons.scxml.model;version="1.0.0",org.osgi.
+ service.component;resolution:=optional;version="[1.2,2)",org.wso2.car
+ bon.context;resolution:=optional;version="[4.2,5)",org.wso2.carbon.co
+ re.services.callback;version="[4.2,5)",org.wso2.carbon.governance.lcm
+ .listener;resolution:=optional;version="[4.2,5)",org.wso2.carbon.gove
+ rnance.lcm.util;resolution:=optional;version="[4.2,5)",org.wso2.carbo
+ n.governance.registry.extensions.utils;resolution:=optional;version="
+ [4.2,5)",org.wso2.carbon.registry.admin.api.governance;resolution:=op
+ tional;version="[0.0,1)",org.wso2.carbon.registry.common.services;res
+ olution:=optional;version="[0.0,1)",org.wso2.carbon.registry.core;ver
+ sion="1.0.1",org.wso2.carbon.registry.core.config;version="1.0.1",org
+ .wso2.carbon.registry.core.exceptions;version="1.0.1",org.wso2.carbon
+ .registry.core.service;version="1.0.1",org.wso2.carbon.registry.core.
+ session;version="1.0.1",org.wso2.carbon.registry.core.utils;version="
+ 1.0.1",org.wso2.carbon.utils;resolution:=optional;version="[4.2,5)",o
+ rg.xml.sax;resolution:=optional
+Bundle-DocURL: http://wso2.org
+

@@ -1,0 +1,38 @@
+Manifest-Version: 1.0
+Service-Component: OSGI-INF/serviceComponents.xml
+Export-Package: org.wso2.carbon.governance.gadgetsource.util;uses:="or
+ g.wso2.carbon.registry.core.service,org.apache.commons.logging,org.ws
+ o2.carbon.registry.core.exceptions,org.wso2.carbon.registry.core,org.
+ wso2.carbon.governance.gadgetsource.beans,org.wso2.carbon.governance.
+ api.services";version="4.2.0",org.wso2.carbon.governance.gadgetsource
+ .services;uses:="org.wso2.carbon.governance.gadgetsource.util,org.wso
+ 2.carbon.registry.core.exceptions,org.wso2.carbon.registry.core,org.w
+ so2.carbon.registry.common.services,org.wso2.carbon.governance.gadget
+ source.beans";version="4.2.0",org.wso2.carbon.governance.gadgetsource
+ .beans;version="4.2.0"
+Built-By: maheshakya
+Tool: Bnd-1.43.0
+Bundle-Name: org.wso2.carbon.governance.gadgetsource
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: WSO2 Inc
+Build-Jdk: 1.7.0_07
+Bundle-Version: 4.2.0
+Bnd-LastModified: 1398151957506
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
+Bundle-Description: Platform Parent pom hold the properties, plugins w
+ hich are required to build carbon components, carbon features and pro
+ ducts
+Import-Package: javax.servlet;version="[2.6.0,3.0.0)",javax.servlet.ht
+ tp;version="[2.6.0,3.0.0)",javax.xml.namespace;version="0.0.0",org.ap
+ ache.commons.logging;resolution:=optional;version="[1.1,2)",org.osgi.
+ service.component;resolution:=optional;version="[1.2,2)",org.wso2.car
+ bon.governance.api.services;resolution:=optional;version="[4.2,5)",or
+ g.wso2.carbon.governance.gadgetsource.util;resolution:=optional,org.w
+ so2.carbon.registry.common.services;resolution:=optional;version="[0.
+ 0,1)",org.wso2.carbon.registry.core;version="1.0.1",org.wso2.carbon.r
+ egistry.core.exceptions;version="1.0.1",org.wso2.carbon.registry.core
+ .service;version="1.0.1"
+Bundle-DocURL: http://wso2.org
+Bundle-SymbolicName: org.wso2.carbon.governance.gadgetsource
+

@@ -1,0 +1,56 @@
+Manifest-Version: 1.0
+Export-Package: org.wso2.carbon.governance.generic.beans;version="4.2.
+ 0",org.wso2.carbon.governance.generic.services;uses:="org.apache.comm
+ ons.logging,org.wso2.carbon.governance.generic.beans,org.wso2.carbon.
+ registry.admin.api.governance,org.wso2.carbon.registry.api,org.wso2.c
+ arbon.governance.api.common.dataobjects,javax.xml.namespace,org.apach
+ e.axiom.om,javax.xml.stream,org.wso2.carbon.registry.core.exceptions,
+ org.wso2.carbon.governance.api.exception,org.wso2.carbon.governance.r
+ egistry.extensions.utils,org.wso2.carbon.registry.core.utils,org.wso2
+ .carbon.registry.core.config,org.wso2.carbon.registry.common.services
+ ,org.wso2.carbon.user.core,org.apache.axiom.om.impl.builder,org.wso2.
+ carbon.registry.core.session,org.wso2.carbon.registry.core,org.wso2.c
+ arbon.governance.api.generic.dataobjects,org.wso2.carbon.governance.a
+ pi.generic,org.wso2.carbon.governance.api.util";version="4.2.0"
+Ignore-Package: javax.xml.namespace
+Built-By: maheshakya
+Tool: Bnd-1.43.0
+Bundle-Name: org.wso2.carbon.governance.generic
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: WSO2 Inc
+Build-Jdk: 1.7.0_07
+Bundle-Version: 4.2.0
+Bnd-LastModified: 1398151953882
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
+Bundle-Description: Platform Parent pom hold the properties, plugins w
+ hich are required to build carbon components, carbon features and pro
+ ducts
+Import-Package: javax.servlet;version="[2.6.0,3.0.0)",javax.servlet.ht
+ tp;version="[2.6.0,3.0.0)",javax.xml.namespace;version="0.0.0",javax.
+ xml.stream;resolution:=optional;version="[1.0,2)",javax.xml.transform
+ ;resolution:=optional,javax.xml.transform.stream;resolution:=optional
+ ,javax.xml.validation;resolution:=optional,org.apache.axiom.om;versio
+ n="[1.2.11.wso2v2,1.3.0)",org.apache.axiom.om.impl.builder;version="[
+ 1.2.11.wso2v2,1.3.0)",org.apache.axiom.om.util;version="[1.2.11.wso2v
+ 2,1.3.0)",org.apache.commons.logging;resolution:=optional;version="[1
+ .1,2)",org.wso2.carbon.governance.api.common.dataobjects;version="[4.
+ 2,5)",org.wso2.carbon.governance.api.exception;version="[4.2,5)",org.
+ wso2.carbon.governance.api.generic;version="[4.2,5)",org.wso2.carbon.
+ governance.api.generic.dataobjects;version="[4.2,5)",org.wso2.carbon.
+ governance.api.util;version="[4.2,5)",org.wso2.carbon.governance.list
+ .util;resolution:=optional;version="[4.2,5)",org.wso2.carbon.governan
+ ce.registry.extensions.utils;resolution:=optional;version="[4.2,5)",o
+ rg.wso2.carbon.registry.admin.api.governance;resolution:=optional;ver
+ sion="[0.0,1)",org.wso2.carbon.registry.api;resolution:=optional;vers
+ ion="[1.0,2)",org.wso2.carbon.registry.common.services;version="[0.0,
+ 1)",org.wso2.carbon.registry.core;version="1.0.1",org.wso2.carbon.reg
+ istry.core.config;version="1.0.1",org.wso2.carbon.registry.core.excep
+ tions;version="1.0.1",org.wso2.carbon.registry.core.session;version="
+ 1.0.1",org.wso2.carbon.registry.core.utils;version="1.0.1",org.wso2.c
+ arbon.user.core;resolution:=optional;version="[4.2,5)",org.wso2.carbo
+ n.utils;resolution:=optional;version="[4.2,5)",org.xml.sax;resolution
+ :=optional
+Bundle-DocURL: http://wso2.org
+Bundle-SymbolicName: org.wso2.carbon.governance.generic
+

@@ -1,0 +1,34 @@
+Manifest-Version: 1.0
+Service-Component: OSGI-INF/serviceComponents.xml
+Export-Package: org.wso2.carbon.governance.wsdltool.util;uses:="org.ws
+ o2.carbon.registry.core.service,org.apache.commons.logging";version="
+ 4.2.0",org.wso2.carbon.governance.wsdltool.services;uses:="org.wso2.c
+ arbon.registry.core.utils,org.wso2.carbon.governance.wsdltool.beans,o
+ rg.wso2.carbon.registry.core,org.wso2.carbon.core,org.apache.axiom.om
+ ";version="4.2.0",org.wso2.carbon.governance.wsdltool.beans;version="
+ 4.2.0"
+Built-By: maheshakya
+Tool: Bnd-1.43.0
+Bundle-Name: org.wso2.carbon.governance.wsdltool
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: WSO2 Inc
+Build-Jdk: 1.7.0_07
+Bundle-Version: 4.2.0
+Bnd-LastModified: 1398151919718
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
+Bundle-Description: Platform Parent pom hold the properties, plugins w
+ hich are required to build carbon components, carbon features and pro
+ ducts
+Import-Package: javax.servlet;version="[2.6.0,3.0.0)",javax.servlet.ht
+ tp;version="[2.6.0,3.0.0)",javax.xml.namespace;version="0.0.0",org.ap
+ ache.axiom.om;version="[1.2.11.wso2v2,1.3.0)",org.apache.commons.logg
+ ing;resolution:=optional;version="[1.1,2)",org.osgi.service.component
+ ;resolution:=optional;version="[1.2,2)",org.wso2.carbon.core;resoluti
+ on:=optional;version="[4.2,5)",org.wso2.carbon.governance.wsdltool.ut
+ il;resolution:=optional,org.wso2.carbon.registry.core;version="1.0.1"
+ ,org.wso2.carbon.registry.core.service;version="1.0.1",org.wso2.carbo
+ n.registry.core.utils;version="1.0.1"
+Bundle-DocURL: http://wso2.org
+Bundle-SymbolicName: org.wso2.carbon.governance.wsdltool
+

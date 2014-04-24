@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><components xmlns:scr="http://www.osgi.org/xmlns/scr/v1.0.0">
+    <scr:component enabled="true" immediate="true" name="org.wso2.carbon.governance.list.ui">
+        <implementation class="org.wso2.carbon.governance.list.ui.internal.GovernanceListUIServiceComponent"/>
+        <property name="service.pid" value="org.wso2.carbon.governance.list.ui" private="false"/>
+        <reference name="ui.authenticator" interface="org.wso2.carbon.ui.CarbonUIAuthenticator" cardinality="1..1" policy="dynamic" bind="setCarbonUIAuthenticator" unbind="unsetCarbonUIAuthenticator" checked="true" strategy="event"/>
+    </scr:component>
+</components>

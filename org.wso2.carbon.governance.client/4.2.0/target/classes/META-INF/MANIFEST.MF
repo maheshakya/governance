@@ -1,0 +1,44 @@
+Manifest-Version: 1.0
+Service-Component: OSGI-INF/serviceComponents.xml
+Export-Package: org.wso2.carbon.governance.client;uses:="org.apache.co
+ mmons.logging,org.wso2.carbon.registry.common,org.wso2.carbon.registr
+ y.core.exceptions,org.wso2.carbon.registry.indexing.stub.generated,or
+ g.wso2.carbon.registry.core.session,org.wso2.carbon.registry.indexing
+ .stub.generated.xsd,org.apache.axis2,org.wso2.carbon.registry.core.pa
+ gination,org.wso2.carbon.core.common,org.apache.axis2.client,org.apac
+ he.axis2.context,org.wso2.carbon.authenticator.stub,org.wso2.carbon.u
+ tils,org.wso2.carbon.governance.api.util";version="4.2.0",org.wso2.ca
+ rbon.governance.client.internal;uses:="org.wso2.carbon.utils,org.apac
+ he.axis2.context,org.wso2.carbon.governance.client";version="4.2.0"
+Built-By: maheshakya
+Tool: Bnd-1.43.0
+Bundle-Name: org.wso2.carbon.governance.client
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: WSO2 Inc
+DynamicImport-Package: *
+Build-Jdk: 1.7.0_07
+Bundle-Version: 4.2.0
+Bnd-LastModified: 1398151982791
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
+Bundle-Description: Governance Client.
+Import-Package: javax.servlet;version="[2.6.0,3.0.0)",javax.servlet.ht
+ tp;version="[2.6.0,3.0.0)",javax.servlet.resources;version="[2.6.0,3.
+ 0.0)",org.apache.axis2;version="[1.6.1.wso2v1,1.7.0)",org.apache.axis
+ 2.client;version="[1.6.1.wso2v1,1.7.0)",org.apache.axis2.context;vers
+ ion="[1.6.1.wso2v1,1.7.0)",org.apache.commons.logging;resolution:=opt
+ ional;version="[1.1,2)",org.eclipse.equinox.http.helper,org.wso2.carb
+ on.authenticator.stub;resolution:=optional;version="[4.2,5)",org.wso2
+ .carbon.core.common;resolution:=optional;version="[4.2,5)",org.wso2.c
+ arbon.governance.api.util;resolution:=optional;version="[4.2,5)",org.
+ wso2.carbon.registry.common;resolution:=optional;version="[0.0,1)",or
+ g.wso2.carbon.registry.core.exceptions;resolution:=optional;version="
+ [1.0,2)",org.wso2.carbon.registry.core.pagination;resolution:=optiona
+ l;version="[1.0,2)",org.wso2.carbon.registry.core.session;resolution:
+ =optional;version="[1.0,2)",org.wso2.carbon.registry.indexing.stub.ge
+ nerated;resolution:=optional;version="[4.2,5)",org.wso2.carbon.regist
+ ry.indexing.stub.generated.xsd;resolution:=optional;version="[4.2,5)"
+ ,org.wso2.carbon.utils;resolution:=optional;version="[4.2,5)"
+Bundle-DocURL: http://wso2.org
+Bundle-SymbolicName: org.wso2.carbon.governance.client
+

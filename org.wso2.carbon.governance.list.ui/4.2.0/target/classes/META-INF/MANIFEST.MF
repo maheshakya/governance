@@ -1,0 +1,59 @@
+Manifest-Version: 1.0
+Service-Component: OSGI-INF/serviceComponents.xml
+Export-Package: org.wso2.carbon.governance.list.ui.i18n;version="4.2.0
+ ",org.wso2.carbon.governance.list.ui.internal;uses:="org.wso2.carbon.
+ ui.deployment,org.wso2.carbon.registry.core.utils,org.apache.commons.
+ logging,org.wso2.carbon.registry.core.config,org.wso2.carbon.ui,org.w
+ so2.carbon.user.api,org.osgi.service.component,org.wso2.carbon.user.c
+ ore.tenant,org.wso2.carbon.ui.deployment.beans,org.apache.axiom.om,or
+ g.wso2.carbon.registry.ws.client.registry,org.wso2.carbon.registry.co
+ re.exceptions,org.wso2.carbon.user.core.service,org.wso2.carbon.regis
+ try.core,javax.servlet.http,org.wso2.carbon.governance.api.util,org.a
+ pache.axiom.om.xpath,javax.xml.namespace,org.jaxen,org.osgi.framework
+ ";version="4.2.0",org.wso2.carbon.governance.list.ui.clients;uses:="o
+ rg.apache.axis2,javax.servlet,org.apache.commons.logging,org.wso2.car
+ bon.registry.core.exceptions,org.wso2.carbon.ui,org.apache.axis2.clie
+ nt,org.wso2.carbon.governance.list.stub,org.apache.axis2.context,org.
+ wso2.carbon.governance.list.stub.beans.xsd,javax.servlet.http";versio
+ n="4.2.0"
+Built-By: maheshakya
+Tool: Bnd-1.43.0
+Bundle-Name: org.wso2.carbon.governance.list.ui
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: WSO2 Inc
+Build-Jdk: 1.7.0_07
+Bundle-Version: 4.2.0
+Bnd-LastModified: 1398151974749
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
+Bundle-Description: Platform Parent pom hold the properties, plugins w
+ hich are required to build carbon components, carbon features and pro
+ ducts
+Import-Package: javax.servlet;version="[2.6.0,3.0.0)",javax.servlet.ht
+ tp;version="[2.6.0,3.0.0)",javax.xml.namespace;resolution:=optional,o
+ rg.apache.axiom.om;resolution:=optional,org.apache.axiom.om.xpath;res
+ olution:=optional,org.apache.axis2;resolution:=optional;version="[1.6
+ ,2)",org.apache.axis2.client;resolution:=optional;version="[1.6,2)",o
+ rg.apache.axis2.context;resolution:=optional;version="[1.6,2)",org.ap
+ ache.commons.logging;resolution:=optional;version="[1.1,2)",org.jaxen
+ ;resolution:=optional;version="[1.1,2)",org.osgi.framework;resolution
+ :=optional;version="[1.7,2)",org.osgi.service.component;resolution:=o
+ ptional;version="[1.2,2)",org.wso2.carbon.governance.api.util;resolut
+ ion:=optional;version="[4.2,5)",org.wso2.carbon.governance.list.stub;
+ version="[4.2.0,4.3.0)",org.wso2.carbon.governance.list.stub.beans.xs
+ d;version="[4.2.0,4.3.0)",org.wso2.carbon.registry.core;resolution:=o
+ ptional;version="[1.0,2)",org.wso2.carbon.registry.core.config;resolu
+ tion:=optional;version="[1.0,2)",org.wso2.carbon.registry.core.except
+ ions;resolution:=optional;version="[1.0,2)",org.wso2.carbon.registry.
+ core.utils;resolution:=optional;version="[1.0,2)",org.wso2.carbon.reg
+ istry.ws.client.registry;resolution:=optional;version="[0.0,1)",org.w
+ so2.carbon.ui;resolution:=optional;version="[4.2,5)",org.wso2.carbon.
+ ui.deployment;resolution:=optional;version="[4.2,5)",org.wso2.carbon.
+ ui.deployment.beans;resolution:=optional;version="[4.2,5)",org.wso2.c
+ arbon.user.api;resolution:=optional;version="[1.0,2)",org.wso2.carbon
+ .user.core.service;resolution:=optional;version="[4.2,5)",org.wso2.ca
+ rbon.user.core.tenant;resolution:=optional;version="[4.2,5)"
+Bundle-DocURL: http://wso2.org
+Carbon-Component: UIBundle
+Bundle-SymbolicName: org.wso2.carbon.governance.list.ui
+

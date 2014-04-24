@@ -1,0 +1,43 @@
+Manifest-Version: 1.0
+Service-Component: OSGI-INF/serviceComponents.xml
+Export-Package: org.wso2.carbon.governance.gadgets.impactanalysis.serv
+ ices.util;uses:="org.wso2.carbon.governance.api.services.dataobjects,
+ org.wso2.carbon.governance.gadgets.impactanalysis.beans,org.wso2.carb
+ on.governance.api.wsdls.dataobjects,org.wso2.carbon.governance.api.po
+ licies.dataobjects,org.apache.commons.logging,org.wso2.carbon.governa
+ nce.api.schema.dataobjects,org.wso2.carbon.governance.api.exception,o
+ rg.wso2.carbon.governance.api.services,javax.xml.namespace";version="
+ 4.2.0",org.wso2.carbon.governance.gadgets.impactanalysis.services;use
+ s:="org.wso2.carbon.governance.gadgets.impactanalysis.beans,org.wso2.
+ carbon.registry.core,org.wso2.carbon.governance.api.exception,org.wso
+ 2.carbon.registry.common.services,org.wso2.carbon.governance.gadgets.
+ impactanalysis.services.util,org.wso2.carbon.governance.api.services"
+ ;version="4.2.0",org.wso2.carbon.governance.gadgets.impactanalysis.be
+ ans;version="4.2.0"
+Built-By: maheshakya
+Tool: Bnd-1.43.0
+Bundle-Name: org.wso2.carbon.governance.gadgets.impactanalysis
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: WSO2 Inc
+DynamicImport-Package: *
+Build-Jdk: 1.7.0_07
+Bundle-Version: 4.2.0
+Bnd-LastModified: 1398151976766
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
+Bundle-Description: Governance Impact Analysis component for WSO2 Carb
+ on
+Import-Package: javax.xml.namespace;resolution:=optional,org.apache.co
+ mmons.logging;version="[1.1,2)",org.osgi.service.component;resolution
+ :=optional;version="[1.2,2)",org.wso2.carbon.governance.api.exception
+ ;version="[4.2,5)",org.wso2.carbon.governance.api.policies.dataobject
+ s;version="[4.2,5)",org.wso2.carbon.governance.api.schema.dataobjects
+ ;version="[4.2,5)",org.wso2.carbon.governance.api.services;version="[
+ 4.2,5)",org.wso2.carbon.governance.api.services.dataobjects;version="
+ [4.2,5)",org.wso2.carbon.governance.api.wsdls.dataobjects;version="[4
+ .2,5)",org.wso2.carbon.registry.common.services;resolution:=optional;
+ version="[0.0,1)",org.wso2.carbon.registry.core;version="[1.0,2)",org
+ .wso2.carbon.registry.core.service;version="[1.0,2)"
+Bundle-DocURL: http://wso2.org
+Bundle-SymbolicName: org.wso2.carbon.governance.gadgets.impactanalysis
+

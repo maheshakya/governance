@@ -1,0 +1,49 @@
+Manifest-Version: 1.0
+Service-Component: OSGI-INF/serviceComponents.xml
+Export-Package: org.wso2.carbon.governance.registry.eventing.internal;
+ uses:="org.wso2.carbon.registry.common.eventing,org.wso2.carbon.regis
+ try.core.service,org.wso2.carbon.registry.core.jdbc.handlers.filters,
+ org.wso2.carbon.governance.registry.eventing.handlers,org.wso2.carbon
+ .registry.app,org.wso2.carbon.registry.core.jdbc.handlers,org.apache.
+ commons.logging,org.wso2.carbon.registry.core.config,org.apache.axis2
+ .engine,org.wso2.carbon.registry.core.session,org.wso2.carbon.registr
+ y.core,org.osgi.service.component";version="4.2.0",org.wso2.carbon.go
+ vernance.registry.eventing.handlers;uses:="org.wso2.carbon.governance
+ .registry.eventing.internal,org.wso2.carbon.registry.common.eventing,
+ org.wso2.carbon.registry.core.utils,org.apache.commons.logging,org.ws
+ o2.carbon.registry.core.jdbc.handlers,org.wso2.carbon.registry.core.c
+ onfig,org.wso2.carbon.registry.core.exceptions,org.wso2.carbon.regist
+ ry.core.session,org.wso2.carbon.registry.core,org.wso2.carbon.governa
+ nce.registry.eventing.handlers.utils.events";version="4.2.0",org.wso2
+ .carbon.governance.registry.eventing.handlers.utils.events;uses:="org
+ .wso2.carbon.registry.common.eventing";version="4.2.0"
+Built-By: maheshakya
+Tool: Bnd-1.43.0
+Bundle-Name: org.wso2.carbon.governance.registry.eventing
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: WSO2 Inc
+Build-Jdk: 1.7.0_07
+Bundle-Version: 4.2.0
+Bnd-LastModified: 1398151899782
+Bundle-ManifestVersion: 2
+Bundle-Description: Platform Parent pom hold the properties, plugins w
+ hich are required to build carbon components, carbon features and pro
+ ducts
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
+Import-Package: javax.servlet;version="[2.6.0,3.0.0)",javax.servlet.ht
+ tp;version="[2.6.0,3.0.0)",org.apache.axis2.engine;version="[1.6.1.ws
+ o2v1,1.7.0)",org.apache.commons.logging;version="[1.1,2)",org.osgi.se
+ rvice.component;resolution:=optional;version="[1.2,2)",org.wso2.carbo
+ n.registry.app;resolution:=optional;version="[1.0,2)",org.wso2.carbon
+ .registry.common.eventing;resolution:=optional;version="[0.0,1)",org.
+ wso2.carbon.registry.core;version="[1.0,2)",org.wso2.carbon.registry.
+ core.config;version="[1.0,2)",org.wso2.carbon.registry.core.exception
+ s;version="[1.0,2)",org.wso2.carbon.registry.core.jdbc.handlers;versi
+ on="[1.0,2)",org.wso2.carbon.registry.core.jdbc.handlers.filters;vers
+ ion="[1.0,2)",org.wso2.carbon.registry.core.service;version="[1.0,2)"
+ ,org.wso2.carbon.registry.core.session;version="[1.0,2)",org.wso2.car
+ bon.registry.core.utils;version="[1.0,2)",org.wso2.carbon.user.core;v
+ ersion="[4.2,5)"
+Bundle-DocURL: http://wso2.org
+Bundle-SymbolicName: org.wso2.carbon.governance.registry.eventing
+

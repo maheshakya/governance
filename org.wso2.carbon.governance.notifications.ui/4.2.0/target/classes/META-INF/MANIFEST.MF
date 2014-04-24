@@ -1,0 +1,56 @@
+Manifest-Version: 1.0
+Export-Package: org.wso2.carbon.governance.notifications.ui;uses:="jav
+ ax.servlet.http";version="4.2.0",org.wso2.carbon.governance.notificat
+ ions.ui.clients;uses:="org.apache.axis2,org.apache.commons.logging,or
+ g.wso2.carbon.ui,org.wso2.carbon.governance.notifications.ui,org.apac
+ he.axis2.client,org.wso2.carbon.governance.notifications.stub.beans.x
+ sd,org.apache.axis2.context,org.wso2.carbon.governance.notifications.
+ stub.services.utils.xsd,javax.servlet,org.wso2.carbon.registry.core.e
+ xceptions,org.wso2.carbon.governance.notifications.stub,javax.servlet
+ .http";version="4.2.0",org.wso2.carbon.governance.notifications.ui.i1
+ 8n;version="4.2.0",org.wso2.carbon.governance.notifications.ui.workli
+ st;uses:="org.wso2.carbon.user.mgt.stub.types.carbon,org.apache.axis2
+ ,org.apache.commons.logging,org.wso2.carbon.ui,org.apache.axis2.clien
+ t,org.wso2.carbon.humantask.stub.ui.task.client.api.types,org.wso2.ca
+ rbon.governance.notifications.worklist.stub,org.apache.axis2.context,
+ org.wso2.carbon.registry.common.eventing,javax.servlet,org.apache.axi
+ s2.databinding.types,org.wso2.carbon.user.mgt.stub,org.wso2.carbon.hu
+ mantask.stub.ui.task.client.api,org.wso2.carbon.utils,javax.servlet.h
+ ttp";version="4.2.0"
+Built-By: maheshakya
+Tool: Bnd-1.43.0
+Bundle-Name: org.wso2.carbon.governance.notifications.ui
+Created-By: Apache Maven Bundle Plugin
+Bundle-Vendor: WSO2 Inc
+Build-Jdk: 1.7.0_07
+Bundle-Version: 4.2.0
+Bnd-LastModified: 1398151961394
+Bundle-ManifestVersion: 2
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
+Bundle-Description: Platform Parent pom hold the properties, plugins w
+ hich are required to build carbon components, carbon features and pro
+ ducts
+Import-Package: javax.servlet;version="[2.6.0,3.0.0)",javax.servlet.ht
+ tp;version="[2.6.0,3.0.0)",javax.xml.namespace;version="0.0.0",org.ap
+ ache.axis2;resolution:=optional;version="[1.6,2)",org.apache.axis2.cl
+ ient;resolution:=optional;version="[1.6,2)",org.apache.axis2.context;
+ resolution:=optional;version="[1.6,2)",org.apache.axis2.databinding.t
+ ypes;resolution:=optional;version="[1.6,2)",org.apache.commons.loggin
+ g;resolution:=optional;version="[1.1,2)",org.wso2.carbon.governance.n
+ otifications.stub;version="[4.2.0,4.3.0)",org.wso2.carbon.governance.
+ notifications.stub.beans.xsd;version="[4.2.0,4.3.0)",org.wso2.carbon.
+ governance.notifications.stub.services.utils.xsd;version="[4.2.0,4.3.
+ 0)",org.wso2.carbon.governance.notifications.worklist.stub;resolution
+ :=optional;version="[4.2,5)",org.wso2.carbon.humantask.stub.ui.task.c
+ lient.api;resolution:=optional;version="[4.2,5)",org.wso2.carbon.huma
+ ntask.stub.ui.task.client.api.types;resolution:=optional;version="[4.
+ 2,5)",org.wso2.carbon.registry.common.eventing;resolution:=optional;v
+ ersion="[0.0,1)",org.wso2.carbon.registry.core.exceptions;version="1.
+ 0.1",org.wso2.carbon.ui;resolution:=optional;version="[4.2,5)",org.ws
+ o2.carbon.user.mgt.stub;resolution:=optional;version="[4.2,5)",org.ws
+ o2.carbon.user.mgt.stub.types.carbon;resolution:=optional;version="[4
+ .2,5)",org.wso2.carbon.utils;resolution:=optional;version="[4.2,5)"
+Bundle-DocURL: http://wso2.org
+Carbon-Component: UIBundle
+Bundle-SymbolicName: org.wso2.carbon.governance.notifications.ui
+
