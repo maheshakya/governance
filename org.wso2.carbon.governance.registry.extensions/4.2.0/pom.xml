@@ -104,6 +104,7 @@
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
                         <Bundle-Name>${project.artifactId}</Bundle-Name>
                         <Private-Package>
+                            org.wso2.carbon.governance.registry.extensions.internal,
                             common.*,
                         </Private-Package>
                         <Import-Package>
@@ -121,8 +122,10 @@
                             *;resolution:=optional
                         </Import-Package>
                         <Export-Package>
+                            !org.wso2.carbon.governance.registry.extensions.internal,
                             org.wso2.carbon.governance.registry.extensions.*,
                         </Export-Package>
+
                     </instructions>
                 </configuration>
             </plugin>

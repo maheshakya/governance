@@ -9,9 +9,9 @@
           <property key="Bundle-DocURL" value="http://wso2.org" />
           <property key="Fragment-Host" value="org.wso2.carbon.registry.core" />
           <property key="Bundle-Name" value="org.wso2.carbon.governance.registry.extensions" />
-          <property key="Private-Package" value="common.*," />
+          <property key="Private-Package" value="org.wso2.carbon.governance.registry.extensions.internal,common.*," />
           <property key="Import-Package" value="org.wso2.carbon.registry.core.*,org.wso2.carbon.registry.app.*,org.wso2.carbon.core.services.callback.*,org.wso2.carbon.governance.api.*,!javax.xml.namespace,javax.xml.namespace; version=0.0.0,javax.servlet;version=&quot;[2.6.0, 3.0.0)&quot;,javax.servlet.http;version=&quot;[2.6.0, 3.0.0)&quot;,org.apache.axiom.*; version=&quot;[1.2.11.wso2v2, 1.3.0)&quot;,org.apache.lucene.*,org.apache.commons.scxml.*; version=1.0.0,*;resolution:=optional" />
-          <property key="Export-Package" value="org.wso2.carbon.governance.registry.extensions.*," />
+          <property key="Export-Package" value="!org.wso2.carbon.governance.registry.extensions.internal,org.wso2.carbon.governance.registry.extensions.*," />
         </additionalProperties>
         <additionalJARContents />
       </configuration>

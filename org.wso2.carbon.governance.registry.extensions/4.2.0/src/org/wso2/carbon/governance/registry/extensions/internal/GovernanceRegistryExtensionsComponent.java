@@ -21,12 +21,20 @@ package org.wso2.carbon.governance.registry.extensions.internal;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceRegistration;
 import org.osgi.service.component.ComponentContext;
 import org.wso2.carbon.core.services.callback.LoginSubscriptionManagerService;
+import org.wso2.carbon.governance.api.util.GovernanceBatchValidate;
 import org.wso2.carbon.governance.registry.extensions.listeners.RxtLoader;
+import org.wso2.carbon.governance.registry.extensions.utils.LifecycleValidateUtil;
 import org.wso2.carbon.registry.core.exceptions.RegistryException;
 import org.wso2.carbon.registry.core.service.RegistryService;
 import org.wso2.carbon.securevault.SecretCallbackHandlerService;
+import org.wso2.carbon.registry.core.Registry;
+import org.wso2.carbon.registry.core.session.CurrentSession;
+
+import java.util.*;
 
 /**
  * @scr.component name="org.wso2.governance.registry.extensions.services" immediate="true"
@@ -50,10 +58,26 @@ public class GovernanceRegistryExtensionsComponent {
     private static RegistryService registryService = null;
     private static SecretCallbackHandlerService secretCallbackHandlerService = null;
 
+    private static Registry registry;
+    private static BundleContext bundleContext;
+    private static Stack<ServiceRegistration> registrations = new Stack<ServiceRegistration>();
+
     protected void activate(ComponentContext componentContext) {
        if(log.isDebugEnabled()){
            log.debug("GovernanceRegistryExtensionsComponent activated");
        }
+
+       try{
+            bundleContext = componentContext.getBundleContext();
+           Dictionary dictionary = new Hashtable();
+           dictionary.put("validateMethod", "lifecyleValidation");
+            registrations.push(bundleContext.registerService(GovernanceBatchValidate.class.getName(),
+                    new LifecycleValidateUtil(), dictionary));
+            log.info("Activated Registry core bundle.");
+        }catch (Throwable e) {
+            log.error("Failed to activate Registry Core bundle ", e);
+        }
+
     }
 
     protected void setRegistryService(RegistryService registryService) {
@@ -93,5 +117,18 @@ public class GovernanceRegistryExtensionsComponent {
 
     public static SecretCallbackHandlerService getSecretCallbackHandlerService(){
         return secretCallbackHandlerService;
+    }
+
+    protected void deactivate(ComponentContext componentContext) {
+        while (!registrations.empty()) {
+            registrations.pop().unregister();
+        }
+        bundleContext = null;
+        log.debug("Registry Core bundle is deactivated ");
+    }
+
+    public static BundleContext getBundleContext(){
+
+        return bundleContext;
     }
 }

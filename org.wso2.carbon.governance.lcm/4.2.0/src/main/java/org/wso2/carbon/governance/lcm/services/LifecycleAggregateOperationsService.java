@@ -19,17 +19,17 @@ public class LifecycleAggregateOperationsService extends RegistryAbstractAdmin{
     private GovernanceAggregateOperations governanceAggregateOperations;
 
     public String testBatchValidate(){
-        governanceAggregateOperations = new GovernanceAggregateOperations(getRootRegistry());
+        governanceAggregateOperations = new GovernanceAggregateOperations();
 
         String[] paths = new String[5];
 
-        paths[0] = "/_system/governance/TestResource";
-        paths[1] = "/abc";
+        paths[0] = "/abc";
+        paths[1] = "/_system/governance/TestResource";
         paths[2] = "/My Resource";
         paths[3] = "/resource_1";
         paths[4] = "/resource_2";
 
-        governanceAggregateOperations.createBatch(paths, "TestID");
+        governanceAggregateOperations.createBatch(paths, "lifecyleValidation");
 
         return "gona";
     }

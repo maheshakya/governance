@@ -10,6 +10,9 @@ import org.wso2.carbon.governance.api.util.GovernanceBatchValidate;
 import org.wso2.carbon.registry.core.Registry;
 import org.wso2.carbon.registry.core.Resource;
 import org.wso2.carbon.registry.core.exceptions.RegistryException;
+//import org.wso2.carbon.registry.core.session.CurrentSession;
+import org.wso2.carbon.governance.registry.extensions.internal.GovernanceRegistryExtensionsComponent;
+import org.wso2.carbon.context.PrivilegedCarbonContext;
 
 public class LifecycleValidateUtil implements GovernanceBatchValidate{
 
@@ -21,12 +24,8 @@ public class LifecycleValidateUtil implements GovernanceBatchValidate{
     private final String REGISTRY_LC_NAME = "registry.LC.name";
     private final String REGISTRY_LIFECYCLE = "registry.lifecycle.";
 
-    /**
-     *
-     * @param registry
-     */
-    public LifecycleValidateUtil(Registry registry){
-        this.registry = registry;
+
+    public LifecycleValidateUtil(){
         this.success = false;
     }
 
@@ -38,12 +37,20 @@ public class LifecycleValidateUtil implements GovernanceBatchValidate{
      */
     public boolean validate(String[] paths) throws GovernanceException {
 
+        int tenantId = PrivilegedCarbonContext.getCurrentContext().getTenantId();
+        String userName = PrivilegedCarbonContext.getCurrentContext().getUsername();
+        try{
+            this.registry = GovernanceRegistryExtensionsComponent.getRegistryService().getRegistry(userName, tenantId);
+        }catch(RegistryException e){
+            log.error("Failed to get registry.", e);
+        }
+
         if (paths != null && paths.length != 0){
             try {
                 resource = registry.get(paths[0]);
             } catch (RegistryException e){
                 String message = "Failed to get resource from path:" + paths[0];
-                log.error(message);
+                log.error(message, e);
                 throw new GovernanceException(message, e);
             }
 
@@ -91,11 +98,16 @@ public class LifecycleValidateUtil implements GovernanceBatchValidate{
                 if (!state.equals(currentState) ){
                     String message = "States do not match. States: " + currentState + " and " + state;
                     log.error(message);
-                    throw new GovernanceException(message);
+                    success = false;
+                    break;
+
+                }
+                else{
+                    success = true;
                 }
 
             }
-            success = true;
+
         }
 
         else{

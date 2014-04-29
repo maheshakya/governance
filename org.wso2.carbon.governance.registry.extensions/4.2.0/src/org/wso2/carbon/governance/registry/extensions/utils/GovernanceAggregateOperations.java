@@ -9,7 +9,9 @@ import org.apache.commons.logging.LogFactory;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.util.tracker.ServiceTracker;
+import org.wso2.carbon.governance.api.exception.GovernanceException;
 import org.wso2.carbon.governance.api.util.GovernanceBatchValidate;
+import org.wso2.carbon.governance.registry.extensions.internal.GovernanceRegistryExtensionsComponent;
 import org.wso2.carbon.registry.core.Registry;
 
 
@@ -21,17 +23,9 @@ public class GovernanceAggregateOperations {
     private ServiceReference reference;
     private GovernanceBatchValidate governanceBatchValidate;
 
-    /**
-     *
-     * @param registry
-     */
-    public GovernanceAggregateOperations(Registry registry){
-        this.registry = registry;
-
-    }
 
     public void createBatch(String[] paths, String type){
-        BundleContext bundleContext = new BatchValidateServiceComponent(this.registry).getBundleContext();
+        BundleContext bundleContext = new GovernanceRegistryExtensionsComponent().getBundleContext();
         log.info("Lifecycle batch creation started.");
         if (bundleContext != null) {
             ServiceTracker tracker =
@@ -39,11 +33,21 @@ public class GovernanceAggregateOperations {
                             null);
             tracker.open();
             ServiceReference[] references = tracker.getServiceReferences();
-            log.info(references.toString());
+
+
+            boolean validateStatus = false;
             if (references != null) {
                 for (ServiceReference reference : references) {
-                    if (type.equals(reference.getProperty("type"))) {
+                    if (type.equals(reference.getProperty("validateMethod"))) {
                         governanceBatchValidate = (GovernanceBatchValidate) tracker.getService(reference);
+
+                        try{
+                        validateStatus = governanceBatchValidate.validate(paths);
+                        }catch (GovernanceException e)
+                        {
+                            log.error("Batch Validation failed" ,e);
+                        }
+
                         break;
                     }
                     else{
@@ -51,7 +55,11 @@ public class GovernanceAggregateOperations {
                     }
                 }
             }
+            log.info("validate success: " + validateStatus);
             tracker.close();
+        }
+        else{
+            log.info("Batch creation failed. BundleContext is null.");
         }
     }
 
