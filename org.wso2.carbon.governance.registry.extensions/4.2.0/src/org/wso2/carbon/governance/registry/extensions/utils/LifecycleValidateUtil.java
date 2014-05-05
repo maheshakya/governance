@@ -43,9 +43,11 @@ public class LifecycleValidateUtil implements GovernanceBatchValidate{
             this.registry = GovernanceRegistryExtensionsComponent.getRegistryService().getRegistry(userName, tenantId);
         }catch(RegistryException e){
             log.error("Failed to get registry.", e);
+            throw new GovernanceException("Failed to get registry",e);
+            //todo : throw exception
         }
 
-        if (paths != null && paths.length != 0){
+        if (paths != null && paths.length > 0){
             try {
                 resource = registry.get(paths[0]);
             } catch (RegistryException e){

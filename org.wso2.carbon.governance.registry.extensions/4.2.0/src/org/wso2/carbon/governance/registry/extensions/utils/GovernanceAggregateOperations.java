@@ -14,6 +14,8 @@ import org.wso2.carbon.governance.api.util.GovernanceBatchValidate;
 import org.wso2.carbon.governance.registry.extensions.internal.GovernanceRegistryExtensionsComponent;
 import org.wso2.carbon.registry.core.Registry;
 
+import java.util.Map;
+
 
 public class GovernanceAggregateOperations {
 
@@ -21,10 +23,11 @@ public class GovernanceAggregateOperations {
     Registry registry;
     private ServiceTracker serviceTracker;
     private ServiceReference reference;
-    private GovernanceBatchValidate governanceBatchValidate;
+    private static GovernanceBatchValidate governanceBatchValidate;
 
 
-    public void createBatch(String[] paths, String type){
+    public static boolean createBatch(String[] paths, String type){
+        boolean validateStatus = false;
         BundleContext bundleContext = new GovernanceRegistryExtensionsComponent().getBundleContext();
         log.info("Lifecycle batch creation started.");
         if (bundleContext != null) {
@@ -35,7 +38,7 @@ public class GovernanceAggregateOperations {
             ServiceReference[] references = tracker.getServiceReferences();
 
 
-            boolean validateStatus = false;
+
             if (references != null) {
                 for (ServiceReference reference : references) {
                     if (type.equals(reference.getProperty("validateMethod"))) {
@@ -61,6 +64,42 @@ public class GovernanceAggregateOperations {
         else{
             log.info("Batch creation failed. BundleContext is null.");
         }
+
+        return validateStatus;
+    }
+
+    public boolean bachtCheckItemInvoke(String paths[], Map<String,String>
+            parameterMap, String batchValidateMethod){
+        boolean success = false;
+        boolean proceed = GovernanceAggregateOperations.createBatch(paths, batchValidateMethod);
+
+        if(proceed){
+            BatchOperation batchCheckItem = new BatchOperation();
+            try {
+                success = batchCheckItem.invokeBatchCheckItem(paths, parameterMap);
+            }catch(GovernanceException e){
+                log.error("CheckItem invokation for batch failed.", e);
+            }
+
+        }
+        return success;
+    }
+
+    public boolean batchStateTransitionInvoke(String paths[], String action, String batchValidateMethod){
+        boolean success = false;
+        boolean proceed = GovernanceAggregateOperations.createBatch(paths, batchValidateMethod);
+
+        if(proceed){
+            BatchOperation batchCheckItem = new BatchOperation();
+            try {
+                success = batchCheckItem.invokeBatchStateTransition(paths, action);
+            }catch(GovernanceException e){
+                log.error("State transition invokation for batch failed.", e);
+            }
+
+        }
+
+        return success;
     }
 
 

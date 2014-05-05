@@ -69,8 +69,8 @@ public class GovernanceRegistryExtensionsComponent {
 
        try{
             bundleContext = componentContext.getBundleContext();
-           Dictionary dictionary = new Hashtable();
-           dictionary.put("validateMethod", "lifecyleValidation");
+            Dictionary dictionary = new Hashtable();
+            dictionary.put("validateMethod", "lifecyleValidation");
             registrations.push(bundleContext.registerService(GovernanceBatchValidate.class.getName(),
                     new LifecycleValidateUtil(), dictionary));
             log.info("Activated Registry core bundle.");
