@@ -3,16 +3,16 @@ package org.wso2.carbon.governance.registry.extensions.utils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.wso2.carbon.context.PrivilegedCarbonContext;
-import org.wso2.carbon.governance.api.aggregate.BatchResourceBean;
+import org.wso2.carbon.governance.api.util.BatchResourceBean;
 import org.wso2.carbon.governance.api.exception.GovernanceException;
 import org.wso2.carbon.governance.registry.extensions.internal.GovernanceRegistryExtensionsComponent;
 import org.wso2.carbon.registry.core.Registry;
-import org.wso2.carbon.registry.core.Resource;
+//import org.wso2.carbon.registry.core.Resource;
 import org.wso2.carbon.registry.core.exceptions.RegistryException;
 
-import java.util.Enumeration;
+//import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.List;
+//import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,8 +24,10 @@ public class BatchOperation {
     private Registry registry;
 
 
+    /*
     private final String REGISTRY_CUSTOM_LIFECYCLE_CHECKLIST = "registry.custom_lifecycle.checklist.option.";
     private final String REGISTRY_LC_NAME = "registry.LC.name";
+    */
 
     public BatchOperation(){
         int tenantId = PrivilegedCarbonContext.getCurrentContext().getTenantId();
@@ -38,7 +40,8 @@ public class BatchOperation {
     }
 
 
-    public boolean invokeBatchCheckItem(String[] paths, Map<String,String> parameterMap)throws GovernanceException{
+    public boolean invokeBatchCheckItem(BatchResourceBean[] batchResourceBeans,
+                                        Map<String,String> parameterMap)throws GovernanceException{
         String action = "itemClick";
         boolean success = false;
 
@@ -54,20 +57,21 @@ public class BatchOperation {
 
             log.info("Transaction began.");
 
-            for(int i=0; i<paths.length; i++){
-                checkItemsList = getCheckListItemsList(registry.get(paths[i]));
+            for(int i=0; i<batchResourceBeans.length; i++){
+                checkItemsList = batchResourceBeans[i].getCheckListItemsList();
                 if(checkItemsList == null || checkItemsList.length != parameterMap.size()){
-                    throw new GovernanceException("*Incompatible parameters or something*");
+                    throw new GovernanceException("Incompatible parameters and checklist items");
                 }
-                aspect = getResourceLCName(registry.get(paths[i]));
+                aspect = batchResourceBeans[i].getResourceLCName();
 
                 if(aspect == null){
-                    throw new GovernanceException("Lifecycle not found in resource:" + paths[i]);
+                    throw new GovernanceException("Lifecycle not found in resource:"
+                            + batchResourceBeans[i].getResourcePath());
                 }
 
                 for(int j=0; j<parameterMap.size(); j++){
                     if(!parameterMap.get(j + ".item").equals(checkItemsList[j])){
-                        registry.invokeAspect(paths[i], aspect, action, parameterMap);
+                        registry.invokeAspect(batchResourceBeans[i].getResourcePath(), aspect, action, parameterMap);
 
                     }
                 }
@@ -102,7 +106,8 @@ public class BatchOperation {
 
     }
 
-    public boolean invokeBatchStateTransition(String paths[], String action) throws GovernanceException{
+    public boolean invokeBatchStateTransition(BatchResourceBean[] batchResourceBeans,
+                                              String action) throws GovernanceException{
         boolean success = false;
 
         if (action == null){
@@ -118,21 +123,23 @@ public class BatchOperation {
 
             log.info("Transaction began.");
 
-            for(int i=0; i<paths.length; i++){
-                checkItemsList = getCheckListItemsList(registry.get(paths[i]));
+            for(int i=0; i<batchResourceBeans.length; i++){
+                checkItemsList = batchResourceBeans[i].getCheckListItemsList();
                 if(checkItemsList == null){
-                    throw new GovernanceException("Check items not found in resource:" + paths[i]);
+                    throw new GovernanceException("Check items not found in resource:"
+                            + batchResourceBeans[i].getResourcePath());
                 }
 
                 for(int j=0; j<checkItemsList.length; j++){
                     parameterMap.put(j+".item", checkItemsList[j]);
                 }
 
-                aspect = getResourceLCName(registry.get(paths[i]));
+                aspect = batchResourceBeans[i].getResourceLCName();
                 if(aspect == null){
-                    throw new GovernanceException("Lifecycle not found in resource:" + paths[i]);
+                    throw new GovernanceException("Lifecycle not found in resource:"
+                            + batchResourceBeans[i].getResourcePath());
                 }
-                registry.invokeAspect(paths[i], aspect, action, parameterMap);
+                registry.invokeAspect(batchResourceBeans[i].getResourcePath(), aspect, action, parameterMap);
             }
             success = true;
         } catch(GovernanceException e){
@@ -145,7 +152,7 @@ public class BatchOperation {
             if(success){
                 try{
                     registry.commitTransaction();
-                    log.info("Item check successful.");
+                    log.info("State transition successful.");
 
                 } catch(RegistryException e) {
                     throw new GovernanceException(e);
@@ -154,7 +161,7 @@ public class BatchOperation {
             else{
                 try{
                     registry.rollbackTransaction();
-                    log.error("Item check Failed.");
+                    log.error("State transition Failed.");
                 } catch (RegistryException e){
                     throw new GovernanceException(e);
                 }
@@ -167,6 +174,7 @@ public class BatchOperation {
 
 
 
+    /*
     private String[] getCheckListItemsList(Resource resource){
         String[] checkListItemsList = null;
 
@@ -199,4 +207,5 @@ public class BatchOperation {
 
         return resourceLCName;
     }
+    */
 }

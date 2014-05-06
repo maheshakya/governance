@@ -1,4 +1,4 @@
-package org.wso2.carbon.governance.registry.extensions.beans;
+package org.wso2.carbon.governance.api.util;
 
 import org.wso2.carbon.governance.api.exception.GovernanceException;
 

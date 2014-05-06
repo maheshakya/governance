@@ -9,7 +9,7 @@
           <property key="Bundle-DocURL" value="http://wso2.org" />
           <property key="Bundle-Name" value="org.wso2.carbon.governance.lcm" />
           <property key="Private-Package" value="org.wso2.carbon.governance.lcm.*," />
-          <property key="Import-Package" value="org.wso2.carbon.registry.core.*;version=1.0.1,org.wso2.carbon.core.services.callback.*,!javax.xml.namespace,javax.xml.namespace; version=0.0.0,javax.servlet;version=&quot;[2.6.0, 3.0.0)&quot;,javax.servlet.http;version=&quot;[2.6.0, 3.0.0)&quot;,org.apache.axiom.*; version=&quot;[1.2.11.wso2v2, 1.3.0)&quot;,org.apache.lucene.*,org.apache.commons.scxml.*; version=1.0.0,*;resolution:=optional" />
+          <property key="Import-Package" value="org.wso2.carbon.registry.core.*;version=1.0.1,org.wso2.carbon.core.services.callback.*,org.wso2.carbon.governance.api.*,!javax.xml.namespace,javax.xml.namespace; version=0.0.0,javax.servlet;version=&quot;[2.6.0, 3.0.0)&quot;,javax.servlet.http;version=&quot;[2.6.0, 3.0.0)&quot;,org.apache.axiom.*; version=&quot;[1.2.11.wso2v2, 1.3.0)&quot;,org.apache.lucene.*,org.apache.commons.scxml.*; version=1.0.0,*;resolution:=optional" />
           <property key="DynamicImport-Package" value="*" />
           <property key="Include-Resource" value="META-INF/services.xml=$MODULE_DIR$/src/main/resources/META-INF/services.xml,META-INF/component.xml=$MODULE_DIR$/src/main/resources/META-INF/component.xml" />
         </additionalProperties>
@@ -30,6 +30,69 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/commons-digester/commons-digester/1.8/commons-digester-1.8.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.1/commons-logging-1.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.12/log4j-1.2.12.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/logkit/logkit/1.0.1/logkit-1.0.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/avalon-framework/avalon-framework/4.1.3/avalon-framework-4.1.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.3/servlet-api-2.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
           <root url="jar://$MAVEN_REPOSITORY$/org/wso2/carbon/org.wso2.carbon.logging/4.2.0/org.wso2.carbon.logging-4.2.0.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -40,15 +103,6 @@
       <library>
         <CLASSES>
           <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/equinox/org.apache.log4j/1.2.13.v200706111418/org.apache.log4j-1.2.13.v200706111418.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -76,24 +130,6 @@
       <library>
         <CLASSES>
           <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/osgi/org.eclipse.osgi/3.8.1.v20120830-144521/org.eclipse.osgi-3.8.1.v20120830-144521.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/commons-digester/commons-digester/1.8/commons-digester-1.8.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/commons-beanutils/commons-beanutils/1.8.0/commons-beanutils-1.8.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -274,15 +310,6 @@
       <library>
         <CLASSES>
           <root url="jar://$MAVEN_REPOSITORY$/org/codehaus/woodstox/wstx-asl/3.2.9/wstx-asl-3.2.9.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/log4j/log4j/1.2.14/log4j-1.2.14.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -2064,15 +2091,6 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.3/servlet-api-2.3.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://$MAVEN_REPOSITORY$/org/apache/neethi/neethi/2.0.4/neethi-2.0.4.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -2552,7 +2570,7 @@
     <orderEntry type="library" name="Maven: org.wso2.carbon:org.wso2.carbon.event.ws:4.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.wso2.carbon:org.wso2.carbon.email.verification:4.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.wso2.carbon:org.wso2.carbon.governance.notifications.worklist.stub:4.2.0" level="project" />
-    <orderEntry type="library" name="Maven: org.wso2.carbon:org.wso2.carbon.governance.api:4.2.0" level="project" />
+    <orderEntry type="module" module-name="org.wso2.carbon.governance.api" />
     <orderEntry type="library" name="Maven: org.eclipse.equinox:org.eclipse.equinox.registry:3.5.100.v20110502" level="project" />
     <orderEntry type="library" name="Maven: org.wso2.carbon:org.wso2.carbon.registry.indexing:4.2.0" level="project" />
     <orderEntry type="library" name="Maven: solr.wso2:solr:1.4.1.wso2v1" level="project" />

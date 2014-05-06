@@ -5,11 +5,11 @@ Export-Package: org.wso2.carbon.governance.registry.extensions.beans;v
  ses:="org.wso2.carbon.registry.core.service,org.apache.commons.loggin
  g,org.wso2.carbon.registry.core.exceptions,org.wso2.carbon.registry.c
  ore.session,org.wso2.carbon.registry.core,org.wso2.carbon.governance.
- api.exception,org.wso2.carbon.context,org.wso2.carbon.registry.core.u
- tils,org.wso2.carbon.registry.core.config,org.apache.axiom.om.util,or
- g.apache.axiom.om,javax.xml.namespace,javax.xml.stream,org.wso2.carbo
- n.utils,org.osgi.util.tracker,org.osgi.framework,org.wso2.carbon.gove
- rnance.api.util";version="4.2.0",org.wso2.carbon.governance.registry.
+ api.exception,org.wso2.carbon.context,org.wso2.carbon.governance.api.
+ util,org.wso2.carbon.registry.core.utils,org.wso2.carbon.registry.cor
+ e.config,org.apache.axiom.om.util,org.apache.axiom.om,javax.xml.names
+ pace,javax.xml.stream,org.wso2.carbon.utils,org.osgi.util.tracker,org
+ .osgi.framework";version="4.2.0",org.wso2.carbon.governance.registry.
  extensions.validators.aggregators;uses:="org.apache.commons.logging,o
  rg.wso2.carbon.governance.registry.extensions.interfaces,org.wso2.car
  bon.registry.core.jdbc.handlers";version="4.2.0",org.wso2.carbon.gove
@@ -129,7 +129,7 @@ Bundle-Vendor: WSO2 Inc
 Fragment-Host: org.wso2.carbon.registry.core
 Build-Jdk: 1.7.0_07
 Bundle-Version: 4.2.0
-Bnd-LastModified: 1398832378200
+Bnd-LastModified: 1399286859951
 Bundle-ManifestVersion: 2
 Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
 Bundle-Description: Platform Parent pom hold the properties, plugins w

@@ -17,8 +17,9 @@ Export-Package: org.wso2.carbon.governance.lcm.util;uses:="org.wso2.ca
  governance.lcm.util,org.wso2.carbon.registry.core.utils,org.wso2.carb
  on.registry.core,org.wso2.carbon.governance.lcm.beans,org.wso2.carbon
  .registry.admin.api.governance,org.wso2.carbon.registry.common.servic
- es,org.wso2.carbon.governance.registry.extensions.utils";version="4.2
- .0",org.wso2.carbon.governance.lcm.beans;version="4.2.0"
+ es,org.wso2.carbon.governance.registry.extensions.utils,org.wso2.carb
+ on.governance.api.util";version="4.2.0",org.wso2.carbon.governance.lc
+ m.beans;version="4.2.0"
 Ignore-Package: javax.xml.namespace
 Built-By: maheshakya
 Tool: Bnd-1.43.0
@@ -28,7 +29,7 @@ Bundle-Vendor: WSO2 Inc
 DynamicImport-Package: *
 Build-Jdk: 1.7.0_07
 Bundle-Version: 4.2.0
-Bnd-LastModified: 1398832430745
+Bnd-LastModified: 1399292694631
 Bundle-ManifestVersion: 2
 Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
 Bundle-Description: Platform Parent pom hold the properties, plugins w
@@ -47,17 +48,18 @@ Import-Package: com.ctc.wstx.exc;resolution:=optional,javax.servlet;ve
  sion="1.0.0",org.apache.commons.scxml.model;version="1.0.0",org.osgi.
  service.component;resolution:=optional;version="[1.2,2)",org.wso2.car
  bon.context;resolution:=optional;version="[4.2,5)",org.wso2.carbon.co
- re.services.callback;version="[4.2,5)",org.wso2.carbon.governance.lcm
- .listener;resolution:=optional,org.wso2.carbon.governance.lcm.util;re
- solution:=optional,org.wso2.carbon.governance.registry.extensions.uti
- ls;resolution:=optional;version="[4.2,5)",org.wso2.carbon.registry.ad
- min.api.governance;resolution:=optional;version="[0.0,1)",org.wso2.ca
- rbon.registry.common.services;resolution:=optional;version="[0.0,1)",
- org.wso2.carbon.registry.core;version="1.0.1",org.wso2.carbon.registr
- y.core.config;version="1.0.1",org.wso2.carbon.registry.core.exception
- s;version="1.0.1",org.wso2.carbon.registry.core.service;version="1.0.
- 1",org.wso2.carbon.registry.core.session;version="1.0.1",org.wso2.car
- bon.registry.core.utils;version="1.0.1",org.wso2.carbon.utils;resolut
- ion:=optional;version="[4.2,5)",org.xml.sax;resolution:=optional
+ re.services.callback;version="[4.2,5)",org.wso2.carbon.governance.api
+ .util;version="[4.2,5)",org.wso2.carbon.governance.lcm.listener;resol
+ ution:=optional,org.wso2.carbon.governance.lcm.util;resolution:=optio
+ nal,org.wso2.carbon.governance.registry.extensions.utils;resolution:=
+ optional;version="[4.2,5)",org.wso2.carbon.registry.admin.api.governa
+ nce;resolution:=optional;version="[0.0,1)",org.wso2.carbon.registry.c
+ ommon.services;resolution:=optional;version="[0.0,1)",org.wso2.carbon
+ .registry.core;version="1.0.1",org.wso2.carbon.registry.core.config;v
+ ersion="1.0.1",org.wso2.carbon.registry.core.exceptions;version="1.0.
+ 1",org.wso2.carbon.registry.core.service;version="1.0.1",org.wso2.car
+ bon.registry.core.session;version="1.0.1",org.wso2.carbon.registry.co
+ re.utils;version="1.0.1",org.wso2.carbon.utils;resolution:=optional;v
+ ersion="[4.2,5)",org.xml.sax;resolution:=optional
 Bundle-DocURL: http://wso2.org
 

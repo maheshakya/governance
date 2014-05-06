@@ -25,9 +25,9 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 import org.osgi.service.component.ComponentContext;
 import org.wso2.carbon.core.services.callback.LoginSubscriptionManagerService;
-import org.wso2.carbon.governance.api.util.GovernanceBatchValidate;
+import org.wso2.carbon.governance.api.util.GovernanceBatchValidation;
 import org.wso2.carbon.governance.registry.extensions.listeners.RxtLoader;
-import org.wso2.carbon.governance.registry.extensions.utils.LifecycleValidateUtil;
+import org.wso2.carbon.governance.registry.extensions.utils.LifecycleStateValidateUtil;
 import org.wso2.carbon.registry.core.exceptions.RegistryException;
 import org.wso2.carbon.registry.core.service.RegistryService;
 import org.wso2.carbon.securevault.SecretCallbackHandlerService;
@@ -70,9 +70,9 @@ public class GovernanceRegistryExtensionsComponent {
        try{
             bundleContext = componentContext.getBundleContext();
             Dictionary dictionary = new Hashtable();
-            dictionary.put("validateMethod", "lifecyleValidation");
-            registrations.push(bundleContext.registerService(GovernanceBatchValidate.class.getName(),
-                    new LifecycleValidateUtil(), dictionary));
+            dictionary.put("validateMethod", "lifecyleStateValidation");
+            registrations.push(bundleContext.registerService(GovernanceBatchValidation.class.getName(),
+                    new LifecycleStateValidateUtil(), dictionary));
             log.info("Activated Registry core bundle.");
         }catch (Throwable e) {
             log.error("Failed to activate Registry Core bundle ", e);

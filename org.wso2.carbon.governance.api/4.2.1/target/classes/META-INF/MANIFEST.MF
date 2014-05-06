@@ -97,9 +97,9 @@ Export-Package: org.wso2.carbon.governance.api.services.dataobjects;us
  arbon.registry.core.exceptions,org.wso2.carbon.registry.core,org.wso2
  .carbon.governance.api.common,org.wso2.carbon.governance.api.util";ve
  rsion="4.2.1",org.wso2.carbon.governance.api.util;uses:="org.wso2.car
- bon.registry.core,org.wso2.carbon.utils.component.xml.config,org.apac
- he.axiom.om,javax.xml.namespace,org.wso2.carbon.governance.api.except
- ion,org.wso2.carbon.base,org.wso2.carbon.registry.core.utils,org.wso2
+ bon.governance.api.exception,org.wso2.carbon.registry.core,org.wso2.c
+ arbon.utils.component.xml.config,org.apache.axiom.om,javax.xml.namesp
+ ace,org.wso2.carbon.base,org.wso2.carbon.registry.core.utils,org.wso2
  .carbon.registry.core.service,org.wso2.carbon.governance.api.wsdls.da
  taobjects,org.wso2.carbon.registry.core.jdbc.handlers,org.apache.comm
  ons.logging,org.wso2.carbon.registry.common,org.wso2.carbon.governanc
@@ -122,7 +122,7 @@ Bundle-Vendor: WSO2 Inc
 DynamicImport-Package: *
 Build-Jdk: 1.7.0_07
 Bundle-Version: 4.2.1
-Bnd-LastModified: 1398165305530
+Bnd-LastModified: 1399280915489
 Bundle-ManifestVersion: 2
 Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
 Bundle-Description: Governance API.
