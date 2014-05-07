@@ -1,3 +1,18 @@
+/*
+ * Copyright (c) 2005-2011, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.wso2.carbon.governance.registry.extensions.utils;
 
 import org.apache.commons.logging.Log;
@@ -7,28 +22,19 @@ import org.wso2.carbon.governance.api.util.BatchResourceBean;
 import org.wso2.carbon.governance.api.exception.GovernanceException;
 import org.wso2.carbon.governance.registry.extensions.internal.GovernanceRegistryExtensionsComponent;
 import org.wso2.carbon.registry.core.Registry;
-//import org.wso2.carbon.registry.core.Resource;
 import org.wso2.carbon.registry.core.exceptions.RegistryException;
 
-//import java.util.Enumeration;
 import java.util.HashMap;
-//import java.util.List;
 import java.util.Map;
 
-/**
- * Created by maheshakya on 4/29/14.
- */
 public class BatchOperation {
 
     private static final Log log = LogFactory.getLog(BatchOperation.class);
     private Registry registry;
 
-
-    /*
-    private final String REGISTRY_CUSTOM_LIFECYCLE_CHECKLIST = "registry.custom_lifecycle.checklist.option.";
-    private final String REGISTRY_LC_NAME = "registry.LC.name";
-    */
-
+    /**
+     * Initializing method for BatchOperation. This creates a Registry instance for the invoke operation
+     */
     public BatchOperation(){
         int tenantId = PrivilegedCarbonContext.getCurrentContext().getTenantId();
         String userName = PrivilegedCarbonContext.getCurrentContext().getUsername();
@@ -40,13 +46,20 @@ public class BatchOperation {
     }
 
 
+    /**
+     *
+     * @param batchResourceBeans
+     * @param parameterMap
+     * @return status of the invocation
+     * @throws GovernanceException
+     */
     public boolean invokeBatchCheckItem(BatchResourceBean[] batchResourceBeans,
                                         Map<String,String> parameterMap)throws GovernanceException{
         String action = "itemClick";
         boolean success = false;
 
         if (parameterMap == null){
-            throw new GovernanceException("paramterMap cannot be null");
+            throw new GovernanceException("parameterMap cannot be null");
         }
 
         try {
@@ -57,31 +70,39 @@ public class BatchOperation {
 
             log.info("Transaction began.");
 
-            for(int i=0; i<batchResourceBeans.length; i++){
-                checkItemsList = batchResourceBeans[i].getCheckListItemsList();
-                if(checkItemsList == null || checkItemsList.length != parameterMap.size()){
+            for (BatchResourceBean batchResourceBean : batchResourceBeans) {
+                checkItemsList = batchResourceBean.getCheckListItemsList();
+                if (checkItemsList == null || checkItemsList.length != parameterMap.size()) {
                     throw new GovernanceException("Incompatible parameters and checklist items");
                 }
-                aspect = batchResourceBeans[i].getResourceLCName();
+                aspect = batchResourceBean.getResourceLCName();
 
-                if(aspect == null){
+                if (aspect == null) {
                     throw new GovernanceException("Lifecycle not found in resource:"
-                            + batchResourceBeans[i].getResourcePath());
+                            + batchResourceBean.getResourcePath());
                 }
 
-                for(int j=0; j<parameterMap.size(); j++){
-                    if(!parameterMap.get(j + ".item").equals(checkItemsList[j])){
-                        registry.invokeAspect(batchResourceBeans[i].getResourcePath(), aspect, action, parameterMap);
+                try {
+
+                for (int j = 0; j < parameterMap.size(); j++) {
+                    if (!parameterMap.get(j + ".item").equals(checkItemsList[j])) {
+                        registry.invokeAspect(batchResourceBean.getResourcePath(), aspect, action, parameterMap);
 
                     }
                 }
+                }catch(RegistryException e){
+                    String message = "An error occurred while aspect invocation for item check for the resource " +
+                            batchResourceBean.getResourcePath();
+                    throw new GovernanceException(message, e);
+                }
+
             }
             success = true;
         } catch(GovernanceException e){
-            String message = "GovernanceException";
+            String message = "An error occurred while acquiring data from BatchResourceBean";
             throw new GovernanceException(message, e);
         } catch(RegistryException e){
-            String message = "RegistryException";
+            String message = "An error occurred while registry transaction process for the batch operation";
             throw new GovernanceException(message, e);
         }finally {
             if(success){
@@ -93,19 +114,24 @@ public class BatchOperation {
                     throw new GovernanceException(e);
                 }
             }
-            else{
-                try{
-                    registry.rollbackTransaction();
-                    log.error("Item check Failed.");
-                } catch (RegistryException e){
-                    throw new GovernanceException(e);
-                }
+            else try {
+                registry.rollbackTransaction();
+                log.error("Item check Failed.");
+            } catch (RegistryException e) {
+                throw new GovernanceException(e);
             }
         }
         return success;
 
     }
 
+    /**
+     *
+     * @param batchResourceBeans
+     * @param action
+     * @return status of the invocation
+     * @throws GovernanceException
+     */
     public boolean invokeBatchStateTransition(BatchResourceBean[] batchResourceBeans,
                                               String action) throws GovernanceException{
         boolean success = false;
@@ -123,30 +149,37 @@ public class BatchOperation {
 
             log.info("Transaction began.");
 
-            for(int i=0; i<batchResourceBeans.length; i++){
-                checkItemsList = batchResourceBeans[i].getCheckListItemsList();
-                if(checkItemsList == null){
+            for (BatchResourceBean batchResourceBean : batchResourceBeans) {
+                checkItemsList = batchResourceBean.getCheckListItemsList();
+                if (checkItemsList == null) {
                     throw new GovernanceException("Check items not found in resource:"
-                            + batchResourceBeans[i].getResourcePath());
+                            + batchResourceBean.getResourcePath());
                 }
 
-                for(int j=0; j<checkItemsList.length; j++){
-                    parameterMap.put(j+".item", checkItemsList[j]);
+                for (int j = 0; j < checkItemsList.length; j++) {
+                    parameterMap.put(j + ".item", checkItemsList[j]);
                 }
 
-                aspect = batchResourceBeans[i].getResourceLCName();
-                if(aspect == null){
+                aspect = batchResourceBean.getResourceLCName();
+                if (aspect == null) {
                     throw new GovernanceException("Lifecycle not found in resource:"
-                            + batchResourceBeans[i].getResourcePath());
+                            + batchResourceBean.getResourcePath());
                 }
-                registry.invokeAspect(batchResourceBeans[i].getResourcePath(), aspect, action, parameterMap);
+                try {
+
+                    registry.invokeAspect(batchResourceBean.getResourcePath(), aspect, action, parameterMap);
+                } catch (RegistryException e) {
+                    String message = "An error occurred while aspect invocation for state transition in the resource " +
+                            batchResourceBean.getResourcePath();
+                    throw new GovernanceException(message, e);
+                }
             }
             success = true;
         } catch(GovernanceException e){
-            String message = "GovernanceException";
+            String message = "An error occurred while acquiring data from BatchResourceBean";
             throw new GovernanceException(message, e);
         } catch(RegistryException e){
-            String message = "RegistryException";
+            String message = "An error occurred while registry transaction process for the batch operation";
             throw new GovernanceException(message, e);
         }finally {
             if(success){
@@ -172,40 +205,4 @@ public class BatchOperation {
         return success;
     }
 
-
-
-    /*
-    private String[] getCheckListItemsList(Resource resource){
-        String[] checkListItemsList = null;
-
-        Enumeration en = resource.getProperties().propertyNames();
-
-        String str;
-        int checkItems = 0;
-        while(en.hasMoreElements()){
-            str = (String) en.nextElement();
-            if (str.startsWith(REGISTRY_CUSTOM_LIFECYCLE_CHECKLIST)){
-                checkItems++;
-            }
-        }
-        checkItems = checkItems/2;
-        if(checkItems>0){
-            checkListItemsList = new String[checkItems];
-            String ITEM_VALUE;
-
-            for(int i=0;i<checkItems;i++){
-                ITEM_VALUE=resource.getPropertyValues(REGISTRY_CUSTOM_LIFECYCLE_CHECKLIST +i +".item").get(3);
-                checkListItemsList[i] = ITEM_VALUE.substring(6);
-            }
-        }
-        return checkListItemsList;
-
-    }
-
-    private String getResourceLCName(Resource resource){
-        String resourceLCName = resource.getProperty(REGISTRY_LC_NAME);
-
-        return resourceLCName;
-    }
-    */
 }

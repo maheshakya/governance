@@ -129,7 +129,7 @@ Bundle-Vendor: WSO2 Inc
 Fragment-Host: org.wso2.carbon.registry.core
 Build-Jdk: 1.7.0_07
 Bundle-Version: 4.2.0
-Bnd-LastModified: 1399286859951
+Bnd-LastModified: 1399462535163
 Bundle-ManifestVersion: 2
 Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
 Bundle-Description: Platform Parent pom hold the properties, plugins w
@@ -182,30 +182,30 @@ Import-Package: com.ibm.wsdl.extensions.schema;resolution:=optional;ve
  .carbon.governance.api.services.dataobjects;version="[4.2,5)",org.wso
  2.carbon.governance.api.util;version="[4.2,5)",org.wso2.carbon.govern
  ance.api.wsdls.dataobjects;version="[4.2,5)",org.wso2.carbon.governan
- ce.registry.extensions.listeners;resolution:=optional,org.wso2.carbon
- .mashup.javascript.hostobjects.registry;resolution:=optional;version=
- "[4.2,5)",org.wso2.carbon.registry.common.utils;resolution:=optional;
- version="[0.0,1)",org.wso2.carbon.registry.core;version="[1.0,2)",org
- .wso2.carbon.registry.core.config;version="[1.0,2)",org.wso2.carbon.r
- egistry.core.exceptions;version="[1.0,2)",org.wso2.carbon.registry.co
- re.internal;version="[1.0,2)",org.wso2.carbon.registry.core.jdbc;vers
- ion="[1.0,2)",org.wso2.carbon.registry.core.jdbc.handlers;version="[1
- .0,2)",org.wso2.carbon.registry.core.service;version="[1.0,2)",org.ws
- o2.carbon.registry.core.session;version="[1.0,2)",org.wso2.carbon.reg
- istry.core.utils;version="[1.0,2)",org.wso2.carbon.registry.extension
- s.beans;resolution:=optional;version="[4.2,5)",org.wso2.carbon.regist
- ry.extensions.handlers.utils;resolution:=optional;version="[4.2,5)",o
- rg.wso2.carbon.registry.extensions.utils;resolution:=optional;version
- ="[4.2,5)",org.wso2.carbon.registry.indexing;resolution:=optional;ver
- sion="[4.2,5)",org.wso2.carbon.registry.indexing.indexer;resolution:=
- optional;version="[4.2,5)",org.wso2.carbon.registry.indexing.solr;res
- olution:=optional;version="[4.2,5)",org.wso2.carbon.registry.uddi.uti
- ls;resolution:=optional;version="[4.2,5)",org.wso2.carbon.securevault
- ;resolution:=optional;version="[4.2,5)",org.wso2.carbon.user.core;res
- olution:=optional;version="[4.2,5)",org.wso2.carbon.utils;resolution:
- =optional;version="[4.2,5)",org.wso2.securevault;resolution:=optional
- ,org.wso2.securevault.secret;resolution:=optional,org.xml.sax;resolut
- ion:=optional
+ ce.registry.extensions.listeners;resolution:=optional;version="[4.2,5
+ )",org.wso2.carbon.mashup.javascript.hostobjects.registry;resolution:
+ =optional;version="[4.2,5)",org.wso2.carbon.registry.common.utils;res
+ olution:=optional;version="[0.0,1)",org.wso2.carbon.registry.core;ver
+ sion="[1.0,2)",org.wso2.carbon.registry.core.config;version="[1.0,2)"
+ ,org.wso2.carbon.registry.core.exceptions;version="[1.0,2)",org.wso2.
+ carbon.registry.core.internal;version="[1.0,2)",org.wso2.carbon.regis
+ try.core.jdbc;version="[1.0,2)",org.wso2.carbon.registry.core.jdbc.ha
+ ndlers;version="[1.0,2)",org.wso2.carbon.registry.core.service;versio
+ n="[1.0,2)",org.wso2.carbon.registry.core.session;version="[1.0,2)",o
+ rg.wso2.carbon.registry.core.utils;version="[1.0,2)",org.wso2.carbon.
+ registry.extensions.beans;resolution:=optional;version="[4.2,5)",org.
+ wso2.carbon.registry.extensions.handlers.utils;resolution:=optional;v
+ ersion="[4.2,5)",org.wso2.carbon.registry.extensions.utils;resolution
+ :=optional;version="[4.2,5)",org.wso2.carbon.registry.indexing;resolu
+ tion:=optional;version="[4.2,5)",org.wso2.carbon.registry.indexing.in
+ dexer;resolution:=optional;version="[4.2,5)",org.wso2.carbon.registry
+ .indexing.solr;resolution:=optional;version="[4.2,5)",org.wso2.carbon
+ .registry.uddi.utils;resolution:=optional;version="[4.2,5)",org.wso2.
+ carbon.securevault;resolution:=optional;version="[4.2,5)",org.wso2.ca
+ rbon.user.core;resolution:=optional;version="[4.2,5)",org.wso2.carbon
+ .utils;resolution:=optional;version="[4.2,5)",org.wso2.securevault;re
+ solution:=optional,org.wso2.securevault.secret;resolution:=optional,o
+ rg.xml.sax;resolution:=optional
 Bundle-DocURL: http://wso2.org
 Bundle-SymbolicName: org.wso2.carbon.governance.registry.extensions
 

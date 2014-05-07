@@ -25,14 +25,13 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 import org.osgi.service.component.ComponentContext;
 import org.wso2.carbon.core.services.callback.LoginSubscriptionManagerService;
-import org.wso2.carbon.governance.api.util.GovernanceBatchValidation;
+import org.wso2.carbon.governance.api.util.ArtifactBatchValidator;
 import org.wso2.carbon.governance.registry.extensions.listeners.RxtLoader;
 import org.wso2.carbon.governance.registry.extensions.utils.LifecycleStateValidateUtil;
 import org.wso2.carbon.registry.core.exceptions.RegistryException;
 import org.wso2.carbon.registry.core.service.RegistryService;
 import org.wso2.carbon.securevault.SecretCallbackHandlerService;
 import org.wso2.carbon.registry.core.Registry;
-import org.wso2.carbon.registry.core.session.CurrentSession;
 
 import java.util.*;
 
@@ -68,12 +67,19 @@ public class GovernanceRegistryExtensionsComponent {
        }
 
        try{
-            bundleContext = componentContext.getBundleContext();
-            Dictionary dictionary = new Hashtable();
-            dictionary.put("validateMethod", "lifecyleStateValidation");
-            registrations.push(bundleContext.registerService(GovernanceBatchValidation.class.getName(),
-                    new LifecycleStateValidateUtil(), dictionary));
-            log.info("Activated Registry core bundle.");
+           bundleContext = componentContext.getBundleContext();
+           String validateMethod = "validateMethod";
+           //For each service which is being registered, a property which defines its' name should be added
+           Dictionary serviceProperties = new Hashtable();
+           serviceProperties.put(validateMethod, "lifecyleStateValidation");
+           registrations.push(bundleContext.registerService(ArtifactBatchValidator.class.getName(),
+                   new LifecycleStateValidateUtil(), serviceProperties));
+           /*
+           When registering other custom validators, re initialize `serviceProperties`
+           Use an appropriate name for validateMethod property
+           */
+
+           log.info("Activated Registry core bundle.");
         }catch (Throwable e) {
             log.error("Failed to activate Registry Core bundle ", e);
         }

@@ -1,19 +1,31 @@
+/*
+ * Copyright (c) 2005-2011, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.wso2.carbon.governance.registry.extensions.utils;
 
-/**
- * Created by maheshakya on 4/17/14.
- */
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.wso2.carbon.governance.api.exception.GovernanceException;
+import org.wso2.carbon.governance.api.exception.BatchValidateException;
+import org.wso2.carbon.governance.api.util.ArtifactBatchValidator;
 import org.wso2.carbon.governance.api.util.BatchResourceBean;
-import org.wso2.carbon.governance.api.util.GovernanceBatchValidation;
 
 import java.util.Arrays;
 import java.util.HashSet;
 
 
-public class LifecycleStateValidateUtil implements GovernanceBatchValidation{
+public class LifecycleStateValidateUtil implements ArtifactBatchValidator {
 
     private static final Log log = LogFactory.getLog(LifecycleStateValidateUtil.class);
 
@@ -21,9 +33,9 @@ public class LifecycleStateValidateUtil implements GovernanceBatchValidation{
      *
      * @param batchResourceBeans
      * @return true if all states are same, else false.
-     * @throws GovernanceException
+     * @throws BatchValidateException
      */
-    public boolean validate(BatchResourceBean[] batchResourceBeans) throws GovernanceException {
+    public boolean validate(BatchResourceBean[] batchResourceBeans) throws BatchValidateException {
 
         boolean success = false;
 
@@ -35,6 +47,7 @@ public class LifecycleStateValidateUtil implements GovernanceBatchValidation{
                 currentStates[i]=batchResourceBeans[i].getResourceCurrentState();
             }
 
+            //Checking whether all elements in the currentStates array are the same
             if( new HashSet<String>(Arrays.asList(currentStates)).size() == 1 ){
                 success = true;
             }
@@ -42,7 +55,7 @@ public class LifecycleStateValidateUtil implements GovernanceBatchValidation{
         }
 
         else{
-            throw new GovernanceException("currentStates array is empty or null");
+            throw new BatchValidateException("BatchResourceBean array is empty or null");
         }
 
         return  success;

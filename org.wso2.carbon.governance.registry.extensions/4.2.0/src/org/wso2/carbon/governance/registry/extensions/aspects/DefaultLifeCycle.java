@@ -65,11 +65,8 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 
-
 import static org.wso2.carbon.governance.registry.extensions.aspects.utils.Utils.*;
 
-
-import org.wso2.carbon.governance.registry.extensions.utils.GovernanceAggregateOperations;
 
 public class DefaultLifeCycle extends Aspect {
     private static final Log log = LogFactory.getLog(DefaultLifeCycle.class);
@@ -332,50 +329,11 @@ public class DefaultLifeCycle extends Aspect {
         Resource resource = requestContext.getResource();
         String currentState = resource.getProperty(stateProperty).replace(" ", ".");
         String resourcePath = requestContext.getResourcePath().getPath();
-        String REGISTRY_ASPECTS = "registry.Aspects";
-        String aspect_name = resource.getProperty(REGISTRY_ASPECTS);
-        String tempState = resource.getProperty(LifecycleConstants.REGISTRY_LIFECYCLE + aspect_name + ".state");
-        Properties tempProp = resource.getProperties();
-        Enumeration en = tempProp.propertyNames();
-        String str;
-        int votes = 0;
-        int checkitems = 0;
-        while(en.hasMoreElements()){
-            str = (String) en.nextElement();
-            if (str.startsWith("registry.custom_lifecycle.votes")){
-                votes++;
-            }
-            if (str.startsWith("registry.custom_lifecycle.checklist")){
-                checkitems++;
-            }
-            System.out.println(str);
-        }
-        System.out.println();
-        System.out.println(votes/2);
-        System.out.println(checkitems/2);
-
-        String ITEM_VALUE = resource.getPropertyValues("registry.custom_lifecycle.checklist.option.0.item").get(3);
-        //String VOTE_VALUE = resource.getPropertyValues("registry.custom_lifecycle.votes.option.0.vote").get(4);
-
-
-
-        System.out.println("Item 0: " + ITEM_VALUE.substring(6));
-        //System.out.println("Votes: " + VOTE_VALUE.substring(5));
-
-
-        System.out.println();
-
-
-
-        //System.out.println(tempState);
-        //System.out.println(currentState);
-        //tempProp.list(System.out);
-
 
           
         
 //        Checking whether the lifecycles variables are properly initialized. If not, we initialize them again.
-	        initializeAspect(requestContext, currentState);
+	        initializeAspect(requestContext,currentState);
 	
 	        
 	        String newResourcePath;

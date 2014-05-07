@@ -23,7 +23,7 @@ Created-By: Apache Maven Bundle Plugin
 Bundle-Vendor: WSO2 Inc
 Build-Jdk: 1.7.0_07
 Bundle-Version: 4.2.0
-Bnd-LastModified: 1398151867155
+Bnd-LastModified: 1399462528491
 Bundle-ManifestVersion: 2
 Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
 Bundle-Description: Platform Parent pom hold the properties, plugins w

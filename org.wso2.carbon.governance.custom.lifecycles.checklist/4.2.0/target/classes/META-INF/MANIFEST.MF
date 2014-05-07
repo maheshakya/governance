@@ -26,7 +26,7 @@ Created-By: Apache Maven Bundle Plugin
 Bundle-Vendor: WSO2 Inc
 Build-Jdk: 1.7.0_07
 Bundle-Version: 4.2.0
-Bnd-LastModified: 1398151907812
+Bnd-LastModified: 1399462540839
 Bundle-ManifestVersion: 2
 Bundle-Description: Platform Parent pom hold the properties, plugins w
  hich are required to build carbon components, carbon features and pro

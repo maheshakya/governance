@@ -44,7 +44,7 @@ Bundle-Vendor: WSO2 Inc
 Fragment-Host: org.wso2.carbon.registry.core
 Build-Jdk: 1.7.0_07
 Bundle-Version: 4.2.0
-Bnd-LastModified: 1398151980771
+Bnd-LastModified: 1399462568791
 Bundle-ManifestVersion: 2
 Bundle-License: http://www.apache.org/licenses/LICENSE-2.0
 Bundle-Description: Platform Parent pom hold the properties, plugins w

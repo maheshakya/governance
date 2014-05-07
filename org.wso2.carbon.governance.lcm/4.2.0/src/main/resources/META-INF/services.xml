@@ -39,7 +39,16 @@
         <parameter name="ServiceClass" locked="false">
             org.wso2.carbon.governance.lcm.services.LifecycleAggregateOperationsService
         </parameter>
-        <operation name="testBatchValidate">
+        <operation name="activateBatchValidation">
+            <parameter name="AuthorizationAction" locked="true">/permission/admin/login</parameter>
+        </operation>
+        <operation name="activateBatchCheckItem">
+            <parameter name="AuthorizationAction" locked="true">/permission/admin/login</parameter>
+        </operation>
+        <operation name="activateBatchStateTransition">
+            <parameter name="AuthorizationAction" locked="true">/permission/admin/login</parameter>
+        </operation>
+        <operation name="getValidators">
             <parameter name="AuthorizationAction" locked="true">/permission/admin/login</parameter>
         </operation>
     </service>
