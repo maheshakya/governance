@@ -38,7 +38,7 @@ public class GovernanceAggregateOperations {
 
 
     /**
-     *
+     * Validates the batch of resources in the BatchResourceBean array according to the validator specified.
      * @param batchResourceBeans
      * @param type : type of the validateMethod
      * @return result of the validation
@@ -85,7 +85,7 @@ public class GovernanceAggregateOperations {
     }
 
     /**
-     *
+     * Validates the batch. If successful, proceeds with the check items checking for the batch
      * @param batchResourceBeans
      * @param parameterMap
      * @param batchValidateMethod
@@ -109,7 +109,7 @@ public class GovernanceAggregateOperations {
     }
 
     /**
-     *
+     * Validates the batch. If successful, proceeds with the state transition for the batch
      * @param batchResourceBeans
      * @param action
      * @param batchValidateMethod

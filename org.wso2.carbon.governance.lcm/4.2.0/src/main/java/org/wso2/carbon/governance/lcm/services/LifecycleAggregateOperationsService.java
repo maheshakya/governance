@@ -26,7 +26,7 @@ import java.util.Map;
 
 public class LifecycleAggregateOperationsService extends RegistryAbstractAdmin{
 
-    private BatchResourceBean[] batchResourceBeans;
+
     private GovernanceAggregateOperations governanceAggregateOperations;
 
     /**
