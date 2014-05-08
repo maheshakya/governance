@@ -48,3 +48,14 @@ Now you can test the functionality using the SoapUI. Steps are as follows.
 
 Following images depict a demonstration.
 
+1. Batch validation: success
+![Batch validation successful.](https://docs.google.com/drawings/d/1W0_wSS_GRjCxny7Xt3mZBWm3YGahEhEHbb2z4gKThG0/pub?w=960&h=720)
+
+2. Batch validation: fail
+![Batch validation fail](https://docs.google.com/drawings/d/129LkoZhqLPBjs7EzrbLGEEDdazbOr0euIa5jtrUiJDk/pub?w=960&h=720)
+
+3. Check items: success
+![check items success](https://docs.google.com/drawings/d/1MgQn-JYlhbvfnsCv0_WdvKFhG4UUotPfwCzSUHOPcJU/pub?w=960&h=720)
+
+You can check whether the operations are successful by checking the resource information in the the UI of the G-Reg server.
+
