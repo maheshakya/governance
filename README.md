@@ -1,7 +1,7 @@
 WSO2 Governance Registry - Aggregate operations support for lifecyles
 =====================================================================
 
-TThis repository contains the implementation of Aggregate operations support for lifecyles. This addresses feature indicated in Redmine : #2341: Lifecycle Integration (supporting aggregate operations) in the WSO2 Governance Registry project.
+This repository contains the implementation of Aggregate operations support for lifecyles. This addresses feature indicated in Redmine : #2341: Lifecycle Integration (supporting aggregate operations) in the WSO2 Governance Registry project.
 
 ## Design details
 
@@ -17,7 +17,7 @@ TThis repository contains the implementation of Aggregate operations support for
 * In `GovernanceAggregateOperations`, these registered validators are searched using an OSGi service tracker to get the required validator and it will be used for proceeding batch operations. All batch operation are handled from this class.
 * `LifecycleAggregateOperationsService` provides a service to use these aggregate operations. Methods in that service require `BatchResourceBean` object arrays for the respective resources on which the batch operations must be performed, with other required parameters for each operation.
 
-**Class and method specific information is expressed in the comments for each of them. **
+**Class and method specific information is expressed in the comments for each of them.**
 
 Running and testing.
 
@@ -27,6 +27,4 @@ The required methods to activate batch operations are implemented in the `Lifecy
 * `activateBatchCheckItem` : takes a `BatchResourceBean` array, a `String` validator and a `HashMap` parameterMap as parameters. Returns the boolean result of the check items invocation.
 * `activateBatchStateTransition` : takes a `BatchResourceBean` array, a `String` validator and a as parameters. Returns the boolean result of the validation.
 * `getValidators` : takes a `BatchResourceBean` array and String validator as parameters. Returns the boolean result of the validation.
-
-
 
