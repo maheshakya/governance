@@ -19,12 +19,32 @@ This repository contains the implementation of Aggregate operations support for 
 
 **Class and method specific information is expressed in the comments for each of them.**
 
-Running and testing.
+## Running and testing
 
 The required methods to activate batch operations are implemented in the `LifecycleAggregateOperationsService`. They are as follows:
 
 * `activateBatchValidation` : takes a `BatchResourceBean` array and `String` validator as parameters. Returns the boolean result of the validation.
 * `activateBatchCheckItem` : takes a `BatchResourceBean` array, a `String` validator and a `HashMap` parameterMap as parameters. Returns the boolean result of the check items invocation.
-* `activateBatchStateTransition` : takes a `BatchResourceBean` array, a `String` validator and a as parameters. Returns the boolean result of the validation.
+* `activateBatchStateTransition` : takes a `BatchResourceBean` array, a `String` validator and a `String` action as parameters. Returns the boolean result of the validation.
 * `getValidators` : takes a `BatchResourceBean` array and String validator as parameters. Returns the boolean result of the validation.
+
+These methods are a example of how the aggregate operations implemented in `GovernanceAggregateOperations` can be used.
+
+In order to test the functionality, I have created another class called `TestLifecycleAggregateOperationsService` in `governance.lcm.services`. First you have to build `governance.api` (version 4.2.1), `governance.registry.extensions` and `governance.lcm` using maven and copy the corresponding `jar` files into your servers' `repository/components/plugings`. Before running the test, you will have to do as follows:
+
+1. Set `HideAdminServiceWSDLs` property to true in `repository/conf/carbon.xml` in your G-Reg server.
+2. Start the server, create any two(2) resources and add lifecycle to them.
+
+You will be able to see the test service from the following URL:
+[https://localhost:9443/services/TestLifecycleAggregateOperationsService?wsdl](https://localhost:9443/services/TestLifecycleAggregateOperationsService?wsdl)
+
+Note: You can use your IP address in the place of "localhost"
+
+Now you can test the functionality using the SoapUI. Steps are as follows. 
+
+1. Create a SOAP project using the above wsdl.
+2. Use the Soap11bindings. For every request, set username and password(credentials in your G-Reg server).
+3. There are three methods. You can test each by providing required parameters and making the request. If the corresponding aggregate operation is successful, you will get "success" as the result and vice versa for failure.
+
+Following images depict a demonstration.
 
