@@ -58,3 +58,8 @@ Following images depict a demonstration.
 ![check items success](https://docs.google.com/drawings/d/1MgQn-JYlhbvfnsCv0_WdvKFhG4UUotPfwCzSUHOPcJU/pub?w=960&h=720)
 
 You can check whether the operations are successful by checking the resource information in the the UI of the G-Reg server.
+
+
+**Note**
+
+You may need to set values in the BatchResourceBean before passing it into any other method as a parameter. So you will have to call set methods. Those set methods are to set required values for aspect invocations of resources. I have a code snippet to get required values from resources. [`GetValues.java`](https://gist.github.com/maheshakya/aa2f135077ae558a5f3d) contains example methods to get those values.
